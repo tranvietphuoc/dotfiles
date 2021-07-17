@@ -11,26 +11,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/phuoc/.oh-my-zsh"
 
-# poetry
-export PATH="$HOME/.poetry/bin:$PATH"
-
 # pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH=$PYENV_ROOT/bin:$PATH
-
-# go
-export GOPATH="$HOME/go-workspace"
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
-# fzf
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-# export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build,.venv} --type f"
-export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,7 +55,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -109,7 +93,6 @@ source $HOME/.oh-my-zsh/custom/plugins/fzf-tab-completion/zsh/fzf-zsh-completion
 # or for everything
 zstyle ':completion:*' fzf-search-display true
 
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -126,6 +109,7 @@ else
   export EDITOR="nvim"
   export VISUAL="nvim"
 fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -145,3 +129,34 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 source /Users/phuoc/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH:$PATH"
+
+# fzf
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/phuoc/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/phuoc/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/phuoc/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/phuoc/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
