@@ -6,6 +6,8 @@ local lspkind = require("lspkind")
 local M = {}
 
 function M.setup()
+    require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "go" } })
+
     local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
     end
@@ -37,7 +39,8 @@ function M.setup()
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = true,
             }),
-            ["<C-j>"] = function(fallback)
+
+            ["<Tab>"] = function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
                 elseif luasnip and luasnip.expand_or_jumpable() then
@@ -48,7 +51,7 @@ function M.setup()
                     fallback()
                 end
             end,
-            ["<C-k>"] = function(fallback)
+            ["<S-Tab>"] = function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
                 elseif luasnip and luasnip.jumpable(-1) then
@@ -136,7 +139,8 @@ function M.setup()
 
     -- lsp servers
     local lsp_servers = {
-        "ccls",
+        -- "ccls",
+        "clangd",
         "pyright",
         "rust_analyzer",
         "gopls",
@@ -147,16 +151,19 @@ function M.setup()
         "yamlls",
         "vimls",
         "tailwindcss",
-        "svelte",
         "jsonls",
         "dockerls",
         "html",
+        "jdtls",
+        "emmet_ls",
+        "texlab",
     }
 
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     for _, server in ipairs(lsp_servers) do
         lspconfig[server].setup({
-            capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            -- capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities()),
         })
     end
 end

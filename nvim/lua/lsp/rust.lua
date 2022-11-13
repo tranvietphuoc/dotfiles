@@ -9,7 +9,7 @@ function M.setup()
     -- lsp
     require("lspconfig").rust_analyzer.setup({
 
-        cmd = { DATA .. "/lsp_servers/rust/rust-analyzer" },
+        cmd = { DATA .. "/mason/bin/rust-analyzer" },
         -- cmd = { "rust-analyzer" },
         filetypes = { "rust" },
         on_attach = require("lsp").common_on_attach,
@@ -17,16 +17,26 @@ function M.setup()
         root_dir = root_pattern("Cargo.toml", "rust-project.json"),
         settings = {
             ["rust-analyzer"] = {
-                assist = {
-                    importGranularity = "module",
-                    importPrefix = "self",
+                imports = {
+                    granularity = {
+                        group = "module",
+                    },
+                    prefix = "self",
                 },
+                -- assist = {
+                --     importGranularity = "module",
+                --     importPrefix = "self",
+                -- },
                 cargo = {
-                    loadOutDirsFromCheck = true,
-                    allFeatures = true,
+                    buildScripts = {
+                        enable = true,
+                    },
                 },
                 procMacro = {
                     enable = true,
+                },
+                checkOnSave = {
+                    command = "clippy",
                 },
             },
         },

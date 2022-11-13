@@ -16,11 +16,6 @@ function M.setup()
     -- toggle gitui
     map("n", "<Leader>GU", "<CMD>lua _G.__fterm_gitui()<CR>", opts)
 
-    -- comment toggle
-    map("n", "<Leader>/", ":CommentToggle<CR>", opts)
-    map("x", "<Leader>/", ":CommentToggle<CR>", opts)
-    map("v", "<Leader>/", ":CommentToggle<CR>", opts)
-
     -- navigating
     --- move between splitted windows
     map("n", "<C-k>", ":wincmd k<CR>", opts)
@@ -74,9 +69,6 @@ function M.setup()
     map("v", "<leader>s", ":lua require('spectre').open_visual()<CR>", opts) -- search current word
     map("n", "<leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>", opts)
 
-    -- rust tools
-    map("n", "<leader>i", ":lua require('rust-tools.inlay_hints').toggle_inlay_hints()<CR>", opts)
-
     -- Lua
     map("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
     map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true, noremap = true })
@@ -85,13 +77,12 @@ function M.setup()
     map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
     map("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
 
-    -- buffer
-    map("n", "<TAB>", ":bn<CR>", { noremap = true, silent = true })
-    map("n", "<S-TAB>", ":bp<CR>", { noremap = true, silent = true })
-    map("n", "<S-c>", ":bd<CR>", { noremap = true, silent = true })
-
     -- neogit
     map("n", "<leader>n", ":Neogit<CR>", opts)
+
+    -- live server
+    map("n", "<leader>Ls", ":LiveServer start<CR>", opts)
+    map("n", "<leader>LS", ":LiveServer stop<CR>", opts)
 end
 
 return M

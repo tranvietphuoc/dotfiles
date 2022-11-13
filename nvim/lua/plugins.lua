@@ -1,22 +1,51 @@
 local M = {}
+
 local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap =
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 end
 
 function M.setup()
     local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        packer_bootstrap =
+            fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
     end
     local packer = require("packer")
     packer.startup(function(use)
         -- packer can manage itself as an optional plugin
         use({ "wbthomason/packer.nvim" })
+
+        -- mason
+        use({ "williamboman/mason.nvim" })
+        use({
+            "williamboman/mason-lspconfig.nvim",
+            config = function()
+                require("lsp.masonconf").setup()
+            end,
+        })
+
         -- colorscheme
-        use("Mofiqul/dracula.nvim")
+        -- use("Mofiqul/dracula.nvim")
+        -- use({ "folke/tokyonight.nvim" })
+        use({
+            "EdenEast/nightfox.nvim",
+            run = ":NightfoxCompile",
+            config = function()
+                require("nightfox").setup({
+                    options = {
+                        styles = {
+                            comments = "italic",
+                            keywords = "bold",
+                            types = "italic,bold",
+                        },
+                    },
+                })
+            end,
+        })
 
         -- git
         use({
@@ -54,7 +83,7 @@ function M.setup()
             end,
         })
 
-        -- -- treesitter
+        -- treesitter
         use({
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
@@ -62,16 +91,17 @@ function M.setup()
                 require("ext.treesitter").setup()
             end,
         })
+
         -- multiple cursors
         use({ "terryma/vim-multiple-cursors" })
 
         -- emmet
-        use({
-            "mattn/emmet-vim",
-            config = function()
-                require("lsp.emmet").setup()
-            end,
-        })
+        -- use({
+        --     "mattn/emmet-vim",
+        --     config = function()
+        --         require("lsp.emmet").setup()
+        --     end,
+        -- })
 
         -- tabline
         use({
@@ -117,10 +147,9 @@ function M.setup()
 
         -- lsp
         use({ "neovim/nvim-lspconfig" })
-        use({ "williamboman/nvim-lsp-installer" })
 
         use({ "onsails/lspkind-nvim" })
-        use({ "tami5/lspsaga.nvim" })
+        use({ "glepnir/lspsaga.nvim" })
         -- auto-completion
         use({ "hrsh7th/nvim-cmp" }) -- Autocompletion plugin
         use({ "hrsh7th/cmp-nvim-lsp" }) -- LSP source for nvim-cmp'
@@ -129,6 +158,7 @@ function M.setup()
         use({ "hrsh7th/cmp-cmdline" })
         use({ "L3MON4D3/LuaSnip" })
         use({ "saadparwaiz1/cmp_luasnip" })
+        use({ "rafamadriz/friendly-snippets" })
         use({ "hrsh7th/vim-vsnip" })
         use({ "hrsh7th/cmp-vsnip" })
 
@@ -176,7 +206,15 @@ function M.setup()
         -- lualine
         use({
             "nvim-lualine/lualine.nvim",
+            -- after = "github-nvim-theme",
             requires = { "kyazdani42/nvim-web-devicons", opt = true },
+            -- config = function()
+            --     require("lualine").setup({
+            --         options = {
+            --             theme = "github_dark",
+            --         },
+            --     })
+            -- end,
         })
 
         -- nvim-tree
@@ -195,12 +233,6 @@ function M.setup()
             end,
         })
 
-        -- documentation generator
-        -- use({
-        --     "kkoomen/vim-doge",
-        --     run = ":call doge#install()",
-        -- })
-        --
         -- indent
         use({
             "lukas-reineke/indent-blankline.nvim",
@@ -208,6 +240,7 @@ function M.setup()
                 require("ext.indent").setup()
             end,
         })
+
         use({
             "folke/zen-mode.nvim",
             config = function()
@@ -228,18 +261,15 @@ function M.setup()
                 })
             end,
         })
+
         -- Comments
         use({
-            "terrortylor/nvim-comment",
-            event = "BufRead",
+            "numToStr/Comment.nvim",
             config = function()
-                local status_ok, nvim_comment = pcall(require, "nvim_comment")
-                if not status_ok then
-                    return
-                end
-                nvim_comment.setup()
+                require("ext.comment").setup()
             end,
         })
+
         -- Javascript / Typescript
         use({
             "jose-elias-alvarez/nvim-lsp-ts-utils",
@@ -252,12 +282,8 @@ function M.setup()
                 "typescript.tsx",
             },
         })
-        use({
-            "mhartington/formatter.nvim",
-            -- config = function ()
-            --   require('extensions.formatters').setup()
-            -- end,
-        })
+
+        use({ "jose-elias-alvarez/null-ls.nvim" })
 
         use({
             "akinsho/toggleterm.nvim",
@@ -279,8 +305,12 @@ function M.setup()
                 })
             end,
         })
+
         -- debugger
         use({ "puremourning/vimspector" })
+
+        -- use({ "mfussenegger/nvim-dap" })
+
         use({
             "folke/which-key.nvim",
             config = function()
@@ -288,17 +318,8 @@ function M.setup()
             end,
         })
 
-        -- snip runner
-        -- use({
-        --     "michaelb/sniprun",
-        --     run = "bash ./install.sh",
-        --     config = function()
-        --         require("ext.sniprun").setup()
-        --     end,
-        -- })
-
         -- github copilot
-        use({ "github/copilot.vim" })
+        -- use({ "github/copilot.vim" })
 
         -- fzf fuzzy finder
         use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -334,6 +355,12 @@ function M.setup()
             end,
         })
         use({ "chrisbra/csv.vim" })
+
+        -- live server
+        use({ "manzeloth/live-server" })
+
+        -- scala metal
+        use({ "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } })
 
         if packer_bootstrap then
             packer.sync()

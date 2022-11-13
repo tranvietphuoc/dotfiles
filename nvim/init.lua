@@ -26,7 +26,12 @@ require("lsp").setup()
 require("ext.cmp").setup()
 
 -- code formatter
-require("ext.formatters").setup()
+-- require("ext.formatters").setup()
+require("ext.nullls").setup()
+
+
+
+
 
 -- lsp server
 require("lsp.bash").setup()
