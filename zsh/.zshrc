@@ -141,5 +141,5 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # java HOME
-export JAVA_HOME = "/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home"
-export PATH = "$JAVA_HOME/bin:$PATH"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
