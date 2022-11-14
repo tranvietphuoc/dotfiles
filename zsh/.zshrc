@@ -81,6 +81,7 @@ plugins=(
 	git
 	zsh-syntax-highlighting
     zsh-autosuggestions
+    web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -129,7 +130,7 @@ eval "$(fnm env --use-on-cd)"
 
 # fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,.DS_Store,.venv/*,target/*,*/__pycache__/*}"'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,.DS_Store,.venv/*,target/,__pycache__/}"'
 
 
 # poetry python
@@ -138,3 +139,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # llvm
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+# java HOME
+export JAVA_HOME = "/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home"
+export PATH = "$JAVA_HOME/bin:$PATH"
