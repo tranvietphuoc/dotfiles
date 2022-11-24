@@ -134,7 +134,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 
 
 # poetry python
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # llvm
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
@@ -143,3 +143,7 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # java HOME
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
+
+# maven
+export MVN_HOME=$HOME/apache-maven-3.8.6
+export PATH=$MVN_HOME/bin:$PATH
