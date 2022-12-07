@@ -141,8 +141,9 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # java HOME
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+# export PATH=$JAVA_HOME/bin:$PATH
 
 # maven
 export MVN_HOME=$HOME/apache-maven-3.8.6
