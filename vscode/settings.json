@@ -1,4 +1,3 @@
-
 {
   "workbench.settings.useSplitJSON": true,
   "workbench.iconTheme": "material-icon-theme",
@@ -17,8 +16,11 @@
   "editor.tabSize": 4,
   "editor.detectIndentation": true,
   "eslint.format.enable": true,
-  "python.pythonPath": "$HOME/.pyenv/shims/python",
+  "python.defaultInterpreterPath": "$HOME/.pyenv/shims/python",
+  "python.terminal.activateEnvironment": false,
   "python.linting.enabled": true,
+  "python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"],
+  "python.linting.pycodestyleArgs": ["--ignore=E303"],
   "python.formatting.provider": "black",
   "python.autoComplete.addBrackets": true,
   "editor.formatOnSave": true,
@@ -111,14 +113,10 @@
       "filenamePattern": "*.ipynb"
     }
   ],
-  "cSpell.enableFiletypes": [
-    "jupyter"
-  ],
+  "cSpell.enableFiletypes": ["jupyter"],
   "liveServer.settings.donotShowInfoMsg": true,
   "workbench.colorTheme": "Dracula Soft",
   "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/vimscript/vscode-neovim/init.vim",
-  "rust-analyzer.updates.askBeforeDownload": false,
-  
+  "rust-analyzer.updates.askBeforeDownload": false
 }
-
