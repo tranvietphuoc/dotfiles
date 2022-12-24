@@ -31,6 +31,10 @@ function M.setup()
         -- colorscheme
         -- use("Mofiqul/dracula.nvim")
         -- use({ "folke/tokyonight.nvim" })
+
+        -- clangd extensions
+        use("p00f/clangd_extensions.nvim")
+
         use({
             "EdenEast/nightfox.nvim",
             run = ":NightfoxCompile",
@@ -135,9 +139,8 @@ function M.setup()
         -- go vim
         use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
 
-        -- rust
-        use({ "rust-lang/rust.vim" })
-        use({ "simrat39/rust-tools.nvim" })
+        -- inlayHints
+        use("lvimuser/lsp-inlayhints.nvim")
 
         -- vim easy align
         use({
@@ -211,11 +214,11 @@ function M.setup()
             -- after = "github-nvim-theme",
             requires = { "kyazdani42/nvim-web-devicons", opt = true },
             -- config = function()
-            --     require("lualine").setup({
-            --         options = {
-            --             theme = "github_dark",
-            --         },
-            --     })
+            -- require("lualine").setup({
+            -- options = {
+            -- theme = "github_dark_colorblind",
+            -- },
+            -- })
             -- end,
         })
 
@@ -310,8 +313,7 @@ function M.setup()
 
         -- debugger
         use({ "puremourning/vimspector" })
-
-        -- use({ "mfussenegger/nvim-dap" })
+        use("mfussenegger/nvim-dap")
 
         use({
             "folke/which-key.nvim",
@@ -323,10 +325,6 @@ function M.setup()
         -- github copilot
         -- use({ "github/copilot.vim" })
 
-        -- fzf fuzzy finder
-        use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
-        use({ "junegunn/fzf.vim", requires = { "junegunn/fzf", run = "./install --bin" } })
-
         -- statusline components
         use({
             "SmiteshP/nvim-gps",
@@ -334,6 +332,16 @@ function M.setup()
             config = function()
                 require("nvim-gps").setup()
             end,
+        })
+        use({
+            "nvim-telescope/telescope.nvim",
+            tag = "0.1.0",
+            -- or                            , branch = '0.1.x',
+            requires = { { "nvim-lua/plenary.nvim" } },
+        })
+        use({
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
         })
         use({
             "pwntester/octo.nvim",

@@ -10,7 +10,6 @@ function M.setup()
     require("lspconfig").rust_analyzer.setup({
 
         cmd = { DATA .. "/mason/bin/rust-analyzer" },
-        -- cmd = { "rust-analyzer" },
         filetypes = { "rust" },
         on_attach = require("lsp").common_on_attach,
         -- on_attach = on_attach,
@@ -23,10 +22,12 @@ function M.setup()
                     },
                     prefix = "self",
                 },
-                -- assist = {
-                --     importGranularity = "module",
-                --     importPrefix = "self",
-                -- },
+                inlayHints = {
+                    bindingModeHints = {
+                        enable = true,
+                    },
+                },
+
                 cargo = {
                     buildScripts = {
                         enable = true,
