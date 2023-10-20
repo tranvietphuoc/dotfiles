@@ -1,12 +1,12 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -78,11 +78,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+    git
 	zsh-syntax-highlighting
     zsh-autosuggestions
     web-search
-)
+    )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,40 +111,43 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # golang
 export GOPATH=/Users/phuoc/go
 export PATH=$GOPATH/bin:$PATH
 
-# fnm 
-eval "$(fnm env --use-on-cd)"
 
+# fnm
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,.DS_Store,.venv/*,target/,__pycache__/}"'
 
-
 # poetry python
 export PATH="$HOME/.local/bin:$PATH"
 
-# llvm
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# cpp-llvm
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export CPPFLAGS="-I/opt/homebrew/Cellar/opencv/4.8.0_4/include/opencv4 -lopencv_core -lopencv_imgcodecs -lopencv_highgui -L/opt/homebrew/Cellar/opencv/4.5.5/lib/:$CPPFLAGS"
+# export CLANGD_FLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
-# java HOME
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# java
 export JAVA_HOME=$(/usr/libexec/java_home)
-# export PATH=$JAVA_HOME/bin:$PATH
 
-# maven
-export MVN_HOME=$HOME/apache-maven-3.8.6
-export PATH=$MVN_HOME/bin:$PATH
+# opencv
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/opencv/4.8.0_4/lib/pkgconfig"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
