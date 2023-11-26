@@ -112,7 +112,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+alias vim='nvim'
+export EDITOR='nvim'
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -122,7 +123,6 @@ eval "$(pyenv init -)"
 # golang
 export GOPATH=/Users/phuoc/go
 export PATH=$GOPATH/bin:$PATH
-
 
 # fnm
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
@@ -146,7 +146,7 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # opencv
-export PKG_CONFIG_PATH="/opt/homebrew/Cellar/opencv/4.8.0_4/lib/pkgconfig"
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/opencv/4.8.1_2/lib/pkgconfig"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
