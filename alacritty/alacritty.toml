@@ -58,26 +58,26 @@ LC_ALL = "en_US.UTF-8"
 TERM = "alacritty"
 
 [font]
-size = 14.0
+size = 15.0
 
 [font.bold]
-family = "FiraCode Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font"
-style = "Medium"
+family = "SauceCodePro Nerd Font"
+style = "Bold Italic"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Regular"
 
 [font.offset]
