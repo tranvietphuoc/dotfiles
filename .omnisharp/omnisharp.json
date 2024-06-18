@@ -1,0 +1,51 @@
+{
+  "msbuild": {
+     "enabled": true,
+     "ToolsVersion": null,
+     "VisualStudioVersion": null,
+     "Configuration": null,
+     "Platform": null,
+     "EnablePackageAutoRestore" : false,
+     "MSBuildExtensionsPath": null,
+     "TargetFrameworkRootPath" : null,
+     "MSBuildSDKsPath": null,
+     "RoslynTargetsPath" : null,
+     "CscToolPath": null,
+     "CscToolExe": null,
+     "loadProjectsOnDemand": false,
+     "GenerateBinaryLogs": false
+  },
+  "RoslynExtensionsOptions": {
+    "documentAnalysisTimeoutMs": 30000,
+    "enableDecompilationSupport": true,
+    "enableImportCompletion": true,
+    "enableAnalyzersSupport": true,
+    "diagnosticWorkersThreadCount": 8,
+    "locationPaths": [
+       "//path_to/code_actions.dll"
+    ],
+  "inlayHintsOptions": {
+        "enableForParameters": true,
+        "forLiteralParameters": true,
+        "forIndexerParameters": true,
+        "forObjectCreationParameters": true,
+        "forOtherParameters": true,
+        "suppressForParametersThatDifferOnlyBySuffix": false,
+        "suppressForParametersThatMatchMethodIntent": false,
+        "suppressForParametersThatMatchArgumentName": false,
+        "enableForTypes": true,
+        "forImplicitVariableTypes": true,
+        "forLambdaParameterTypes": true,
+        "forImplicitObjectCreation": true
+    }
+  },
+  "fileOptions": {
+    "systemExcludeSearchPatterns": [
+      "**/node_modules/**/*",
+      "**/bin/**/*",
+      "**/obj/**/*"
+    ],
+    "excludeSearchPatterns": []
+  }
+
+}
