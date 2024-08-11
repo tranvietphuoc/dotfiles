@@ -1,5 +1,6 @@
 live_config_reload = true
 working_directory = "None"
+shell = "wsl ~"
 
 [bell]
 animation = "EaseOutExpo"
@@ -58,27 +59,10 @@ LC_ALL = "en_US.UTF-8"
 TERM = "alacritty"
 
 [font]
-size = 15.0
-
-[font.bold]
-family = "SauceCodePro Nerd Font"
-style = "Bold"
-
-[font.bold_italic]
-family = "SauceCodePro Nerd Font"
-style = "Bold Italic"
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.italic]
-family = "SauceCodePro Nerd Font"
-style = "Italic"
-
-[font.normal]
-family = "SauceCodePro Nerd Font"
-style = "Regular"
+size = 12.0
+normal = { family = "SauceCodePro Nerd Font", style = "Regular"}
+bold = { family = "SauceCodePro Nerd Font", style = "Bold"}
+italic = { family = "SauceCodePro Nerd Font", style = "Italic"}
 
 [font.offset]
 x = 0
@@ -103,57 +87,57 @@ mods = "None"
 [[keyboard.bindings]]
 action = "ResetFontSize"
 key = "Key0"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "IncreaseFontSize"
 key = "Equals"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "DecreaseFontSize"
 key = "Minus"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "ClearHistory"
 key = "K"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Copy"
 key = "C"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Hide"
 key = "H"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Minimize"
 key = "M"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Quit"
 key = "Q"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Quit"
 key = "W"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
-mods = "Command"
+mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
@@ -163,30 +147,19 @@ mods = "Command|Control"
 [[keyboard.bindings]]
 chars = "\u0002&"
 key = "W"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u0002c"
 key = "T"
-mods = "Command"
+mods = "Control"
 
-[[keyboard.bindings]]
-# chars = "]"
-key = "]"
-mods = "Command|Shift"
-action = "SelectNextTab"
-
-[[keyboard.bindings]]
-# chars = "["
-key = "["
-mods = "Command|Shift"
-action = "SelectPreviousTab"
 
 
 [[keyboard.bindings]]
 chars = "\u0002/"
 key = "F"
-mods = "Command"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -262,4 +235,4 @@ y = 0
 
 [window.position]
 x = 0
-y = 0
+y = 1
