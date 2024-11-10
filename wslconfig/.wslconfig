@@ -1,0 +1,8 @@
+[experimental]
+hostAddressLoopback=true
+autoMemoryReclaim=gradual
+
+[wsl2]
+memory=8GB
+processors=8
+kernelCommandLine=system.unified_cgroup_hierachy=1 cgroup_no_v1=all
