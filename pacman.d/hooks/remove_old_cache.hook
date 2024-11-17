@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Remove all but 1 recent packages
+When = PostTransaction
+Exec = /usr/bin/paccache -rvk1

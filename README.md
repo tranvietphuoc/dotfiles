@@ -8,11 +8,7 @@ The configuration file is located at [here](./alacritty/alacritty.yml)
 
 ### Shell
 
-I used [fish](https://fishshell.com/) as my shell.
-
-The configuration file is located at [here](./fish/config.fish)
-
-And now I move back to [zsh](https://github.com/ohmyzsh/ohmyzsh). My configuration file is located at [here](./zsh/.zshrc)
+I use [zsh](https://github.com/ohmyzsh/ohmyzsh) to customize my shell. My configuration file is located at [here](./zsh/.zshrc)
 
 ### Editors
 
@@ -30,12 +26,6 @@ This is my [main](https://github.com/neovim/neovim) editor. The configuration is
 
 ### Shell prompt
 
-[starship](https://starship.rs/) is a beautiful, minimal and blazing fast shell prompt. Here is the [configs](./starship/starship.toml).
-
-### Ranger
-
-[ranger](https://github.com/ranger/ranger) is a vim-inspired filemanager for console. The configuration file is located at [here](./ranger/rc.conf).
-
 ### pgcli
 
 [pgcli](https://github.com/dbcli/pgcli) is Postgres CLI with autocompletion and syntax highlighting, here is the [configs](./pgcli/config).
@@ -44,8 +34,3 @@ It can be install with [pspg](https://github.com/okbob/pspg) to get better UI.
 ### tmux
 
 [tmux](https://github.com/tmux/tmux) is great tool for terminal multiplexer. Here is the [configs](./tmux/.tmux.conf)
-
-### ctags
-
-I use tagbar in my [neovim](./nvim), so I've installed [ctags](https://github.com/universal-ctags/ctags). Here is the [configuration](./ctag/.ctags)
-
