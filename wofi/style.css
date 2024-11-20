@@ -1,0 +1,62 @@
+window {
+  font-family: "DejaVu Sans", "Font Awesome 5 Free";
+  margin: 0px;
+  border: 1px solid rgba(134, 128, 164, 0.9); /* Viền màu tím sáng nhẹ */
+  background-color: rgba(110, 98, 163, 0.95); /* Nền tím sáng hơn từ Kanagawa */
+  border-radius: 10px;
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  color: #f8f8f2; /* Màu chữ sáng */
+  background-color: rgba(85, 75, 120, 0.95); /* Nền tím sáng đậm hơn một chút */
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: transparent; /* Giữ nền trong suốt */
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: transparent; /* Giữ nền trong suốt */
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+  background-color: rgba(
+    134,
+    128,
+    164,
+    0.3
+  ); /* Thanh cuộn với màu tím sáng mờ */
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #c5c8c6; /* Màu chữ sáng xám */
+}
+
+#entry {
+  border: none;
+}
+
+#entry:focus {
+  border: none;
+}
+
+#entry:selected {
+  background-color: rgba(
+    85,
+    75,
+    120,
+    0.95
+  ); /* Nền khi chọn sáng hơn, tím đậm hơn */
+  border-radius: 5px;
+  border: none;
+}

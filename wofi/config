@@ -1,0 +1,14 @@
+[general]
+mode=dmenu
+show=drun
+prompt=Search...
+allow_images=true
+filter_rate=100
+allow_markup=true
+gtk_dark=true
+term=alacritty
+insensitive=true
+content_halign=true
+layer=overlay
+always_parse_args=true
+show_all=true

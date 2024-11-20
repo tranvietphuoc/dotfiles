@@ -2,54 +2,76 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "height": 5, // Waybar height (to be removed for auto height)
+    "spacing": 1, // Gaps between modules (4px)
+    "gtk-layer-shell": true,
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media"
+        "hyprland/workspaces",
+        // "sway/mode",
+        // "sway/scratchpad",
+        "custom/media",
+        "custom/weather"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "mpd",
         "idle_inhibitor",
         "pulseaudio",
+        "pulseaudio#microphone",
         "network",
-        "power-profiles-daemon",
+        "bluetooth",
+        // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
         "backlight",
+        // "brightness",
         "keyboard-state",
         "sway/language",
         "battery",
-        "battery#bat2",
+        // "battery#bat0",
         "clock",
         "tray",
         "custom/power"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
+    "bluetooth": {
+        "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        // "format": "󰂯 {status}",
+        // "format-no-controller": "",
+        // format-* handles every state, so default format is not necessary.
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": "󰂱 {num_connections}",
+        // "tooltip-format": "{controller_alias}\t{controller_address}",
+        // "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        // "on-click": "blueman-manager"
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -61,16 +83,6 @@
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -106,7 +118,8 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "show-passive-items": true,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -116,10 +129,10 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": true
     },
     "memory": {
-        "format": "{}% "
+        "format": "{used}GB "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -128,14 +141,19 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": [
-            "",
             "",
-            ""
+            "",
+            ""
         ]
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
+        "tooltip": "Brightness",
+        "exec": "brightnessctl g",
+        "on-click": "brightnessctl s +10%",
+        "on-scroll-up": "brightnessctl s +10%",
+        "on-scroll-down": "brightnessctl s 10%-",
         "format-icons": [
             "",
             "",
@@ -150,7 +168,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -169,8 +187,8 @@
             ""
         ]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
+    "battery#bat0": {
+        "bat": "BAT0"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
@@ -184,7 +202,7 @@
         }
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interface": "wlan0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
@@ -215,6 +233,14 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/weather": {
+        //shows the current weather and forecast
+        "tooltip": true,
+        "format": "{}",
+        "interval": 30,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -233,7 +259,7 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
         "menu-actions": {
-            "shutdown": "shutdown",
+            "shutdown": "shutdown -h now",
             "reboot": "reboot",
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
