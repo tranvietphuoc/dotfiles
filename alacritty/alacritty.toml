@@ -4,40 +4,40 @@ animation = "EaseOutExpo"
 color = "#ffffff"
 duration = 0
 
-[colors]
-draw_bold_text_with_bright_colors = true
-
-[[colors.indexed_colors]]
-color = "0xc9826b"
-index = 16
-
-[[colors.indexed_colors]]
-color = "0xbf88bc"
-index = 17
-
-[colors.bright]
-black = "0x465780"
-blue = "0x8cafd2"
-cyan = "0x93ccdc"
-green = "0xb1d196"
-magenta = "0xc895bf"
-red = "0xd06f79"
-white = "0xe7ecf4"
-yellow = "0xf0d399"
+[colors.primary]
+background = '0x1f1f28'
+foreground = '0xdcd7ba'
 
 [colors.normal]
-black = "0x3b4252"
-blue = "0x81a1c1"
-cyan = "0x88c0d0"
-green = "0xa3be8c"
-magenta = "0xb48ead"
-red = "0xbf616a"
-white = "0xe5e9f0"
-yellow = "0xebcb8b"
+black = '0x090618'
+red = '0xc34043'
+green = '0x76946a'
+yellow = '0xc0a36e'
+blue = '0x7e9cd8'
+magenta = '0x957fb8'
+cyan = '0x6a9589'
+white = '0xc8c093'
 
-[colors.primary]
-background = "0x2e3440"
-foreground = "0xcdcecf"
+[colors.bright]
+black = '0x727169'
+red = '0xe82424'
+green = '0x98bb6c'
+yellow = '0xe6c384'
+blue = '0x7fb4ca'
+magenta ='0x938aa9'
+cyan = '0x7aa89f'
+white = '0xdcd7ba'
+
+[colors.selection]
+background = '0x2d4f67'
+foreground = '0xc8c093'
+
+[[colors.indexed_colors]]
+index = 16
+color = '0xffa066'
+[[colors.indexed_colors]]
+index = 17
+color = '0xff5d62'
 
 [cursor]
 style = "Block"
@@ -56,7 +56,7 @@ LC_ALL = "en_US.UTF-8"
 TERM = "alacritty"
 
 [font]
-size = 11.5
+size = 13
 normal = { family = "Jetbrains Mono Nerd Font", style = "Regular"}
 bold = { family = "Jetbrains Mono Nerd Font", style = "Bold"}
 italic = { family = "Jetbrains Mono Nerd Font", style = "Italic"}
@@ -105,11 +105,6 @@ action = "Quit"
 key = "W"
 mods = "Control"
 
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control|Shift"
-
 
 [[keyboard.bindings]]
 chars = "\u0002&"
@@ -118,8 +113,8 @@ mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u0002c"
-key = "T"
-mods = "Control"
+key = "N"
+mods = "Control|Shift"
 
 
 
@@ -149,7 +144,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 [window]
 decorations = "full"
 dynamic_padding = false
-opacity = 0.93
+opacity = 0.7
 startup_mode = "Windowed"
 title = "Alacritty"
 
