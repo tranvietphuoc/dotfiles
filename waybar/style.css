@@ -48,7 +48,7 @@ tooltip {
   border-radius: 10px;
 }
 
-#custom-power_profile,
+#custom-power,
 #custom-weather,
 #cpu,
 #memory,
@@ -72,7 +72,7 @@ tooltip {
 }
 
 #temperature {
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 #temperature.critical {
@@ -80,11 +80,11 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 #tray {
-  border-radius: 10px;
+  border-radius: 0px 10px 10px 0px;
   margin-right: 10px;
 }
 
@@ -96,16 +96,23 @@ tooltip {
   padding-left: 5px;
 }
 
-#custom-power_profile {
+#custom-power {
   color: #a6e3a1;
-  border-left: 0px;
-  border-right: 0px;
+  border-radius: 10px;
 }
 
 #window {
   border-radius: 10px;
   margin-left: 60px;
   margin-right: 60px;
+}
+
+#idle_inhibitor {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#cpu {
+  border-radius: 10px 0px 0px 10px;
 }
 
 #clock {
@@ -145,12 +152,12 @@ tooltip {
 #battery {
   color: #a6e3a1;
   border-radius: 0 10px 10px 0;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-left: 0px;
 }
 
 #custom-weather {
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px;
   border-right: 0px;
   margin-left: 0px;
 }
