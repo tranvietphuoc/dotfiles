@@ -1,3 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# .zshrc
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -8,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,4 +125,35 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/go/"
 export PATH=$GOPATH/bin:$PATH
 
+export PATH="$HOME/.cargo/bin":$PATH
+
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# set XDG_RUNTIME_DIR
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+
+
+# input method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
+# wayland display for xwayland apps
+export GTK_CSD=1
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=xcb
+export GTK_BACKEND=wayland
+
+export WAYLAND_DISPLAY=wayland-1
+export CODE_OZONE_PLATFORM=wayland code
+export DISPLAY=$WAYLAND_DISPLAY
+# SSH 
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_rsa
+
