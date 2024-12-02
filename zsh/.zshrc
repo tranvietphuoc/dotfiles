@@ -153,6 +153,7 @@ export GTK_BACKEND=wayland
 export WAYLAND_DISPLAY=wayland-1
 export CODE_OZONE_PLATFORM=wayland code
 export DISPLAY=$WAYLAND_DISPLAY
+export MOZ_ENABLE_WAYLAND=1
 # SSH 
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_rsa
