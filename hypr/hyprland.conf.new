@@ -1,16 +1,6 @@
+# This file sources other files in `hyprland` and `custom` folders
+# You wanna add your stuff in file in `custom`
 
-# Refer to the wiki for more information.
-# https://wiki.hyprland.org/Configuring/
-
-# Please note not all available settings / options are set here.
-# For a full list, see the wiki
-
-# You can split this configuration into multiple files
-# Create your files separately and then link them to this file like this:
-# source = ~/.config/hypr/hyprland.conf
-
-
-# need to install first. `bash <(curl -s "https://end-4.github.io/dots-hyprland-wiki/setup.sh")`
 # Defaults
 source=~/.config/hypr/hyprland/env.conf
 source=~/.config/hypr/hyprland/execs.conf
@@ -27,6 +17,17 @@ source=~/.config/hypr/custom/rules.conf
 source=~/.config/hypr/custom/keybinds.conf
 
 
+
+# This is an example Hyprland config file.
+# Refer to the wiki for more information.
+# https://wiki.hyprland.org/Configuring/
+
+# Please note not all available settings / options are set here.
+# For a full list, see the wiki
+
+# You can split this configuration into multiple files
+# Create your files separately and then link them to this file like this:
+# source = ~/.config/hypr/hyprland.conf
 
 
 ################
@@ -48,9 +49,9 @@ monitor=,highres,auto,2.5
 # See https://wiki.hyprland.org/Configuring/Keywords/
 
 # Set programs that you use
-# $terminal = alacritty
-# $fileManager = nautilus
-# $menu = wofi --show drun
+$terminal = alacritty
+$fileManager = nautilus
+$menu = wofi --show drun
 
 
 #################
@@ -60,11 +61,11 @@ monitor=,highres,auto,2.5
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
-# exec-once = $terminal
+exec-once = $terminal
 # exec-once = nm-applet &
-# exec-once = waybar
-# exec = hyprpaper
-# exec-once = ~/.config/hypr/xdg-portal-hyprland
+exec-once = waybar
+exec = hyprpaper
+exec-once = ~/.config/hypr/xdg-portal-hyprland
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 # enable gnome-login
@@ -75,7 +76,7 @@ exec-once=fcitx5 -d --replace
 exec-once=fcitx5-remote -r
 
 # idle and lock screen
-# exec-once = swayidle -w timeout 300 'swaylock -f -i $HOME/.config/hypr/wallpapers/Sun-Setting-Horizon.png'  timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+exec-once = swayidle -w timeout 300 'swaylock -f -i $HOME/.config/hypr/wallpapers/Sun-Setting-Horizon.png'  timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 
 
 
@@ -107,8 +108,8 @@ general {
     # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
     # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
     # col.inactive_border = rgba(595959aa)
-    # col.active_border = rgba(9370dbff) rgba(800080ff) 45deg 
-    # col.inactive_border = rgba(663399aa)
+    col.active_border = rgba(9370dbff) rgba(800080ff) 45deg 
+    col.inactive_border = rgba(663399aa)
 
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
@@ -265,9 +266,9 @@ bind = $mainMod,F5,exec,brightnessctl s 10%-
 
 # screen shot with swappy
 # Screenshot a region using Swappy
-# bind = $mainMod, PRINT, exec, grim -g "$(slurp)" - | swappy -f -
+bind = $mainMod, PRINT, exec, grim -g "$(slurp)" - | swappy -f -
 # Screenshot a monitor (default)
-# bind = , PRINT, exec, grim - | swappy -f -
+bind = , PRINT, exec, grim - | swappy -f -
 
 
 
@@ -275,8 +276,11 @@ bind = $mainMod,F5,exec,brightnessctl s 10%-
 bind = $mainMod, T, exec, $terminal
 bind = $mainMod, Q, killactive,
 bind = $mainMod, L, exit,
+bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, F, togglefloating,
 bind = $mainMod, R, exec, $menu
+bind = $mainMod, P, pseudo, # dwindle
+bind = $mainMod, J, togglesplit, # dwindle
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
