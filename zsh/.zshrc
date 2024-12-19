@@ -120,14 +120,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-. "$HOME/.local/bin/env"
-
-export GOPATH="$HOME/go/"
-export PATH=$GOPATH/bin:$PATH
-
-export PATH="$HOME/.cargo/bin":$PATH
-
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
+# . "$HOME/.local/bin/env"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -139,22 +132,10 @@ source <(fzf --zsh)
 # set XDG_RUNTIME_DIR
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
+[ -f ~/.profile ] && source ~/.profile
 
-# input method
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-
-# wayland display for xwayland apps
-export GTK_CSD=1
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORM=xcb
-export GTK_BACKEND=wayland
-
-export WAYLAND_DISPLAY=wayland-1
-export CODE_OZONE_PLATFORM=wayland code
-export DISPLAY=$WAYLAND_DISPLAY
-export MOZ_ENABLE_WAYLAND=1
 # SSH 
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_rsa
+
 
