@@ -16,5 +16,9 @@ export MOZ_ENABLE_WAYLAND=1
 # fix scaling wayland for jetbrains
 export _JAVA_OPTIONS='-Dsun.java2d.uiScale=2 -Dsun.java2d.dpiaware=true'
 
+# enable ibus bamboo start with system
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+ibus-daemon -drx
 
-exec fish
