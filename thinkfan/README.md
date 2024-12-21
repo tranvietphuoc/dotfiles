@@ -1,2 +1,3 @@
+- should copy these files into right location on your computer
 - thinkfan.conf is located at /etc/thinkfan.conf
 - another one file is located at /etc/modprobe.d/thinkfan.conf
