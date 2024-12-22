@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # .zshrc
 
 # If you come from bash you might have to change your $PATH.
@@ -133,6 +134,13 @@ source <(fzf --zsh)
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 [ -f ~/.profile ] && source ~/.profile
+
+
+# enable ibus bamboo start with system
+export WAYLAND_DISPLAY=wayland-0
+export GDK_BACKEND=wayland,x11
+export QT_QPA_PLATFORM=wayland
+
 
 # SSH 
 # eval "$(ssh-agent -s)"
