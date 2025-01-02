@@ -1,0 +1,94 @@
+
+#: Font{{{ 
+font_family FiraCode Nerd Font 
+bold_font FiraCode Nerd Font
+italic_font FiraCode Nerd Font
+bold_italic_font FiraCode Nerd Font
+
+font_size 14.0
+
+disable_ligatures never
+
+#: }}}
+
+#: Color scheme {{{
+includes themes/tokyo_night.conf
+
+background_opacity 0.85
+background_blur 15
+
+
+#}}}
+
+
+#: Scrollback {{{ 
+scrollback_lines 2000
+scrollback_indicator_opacity 1.0
+
+scrollback_lines -1
+scrollback_fill_enlarged_window yes
+#: }}}
+
+
+
+#: Cursor {{{
+
+cursor_shape block
+
+cursor_beam_thickness 1.5
+
+#: Defines the thickness of the beam cursor (in pts)
+
+# cursor_underline_thickness 2.0
+
+#: Defines the thickness of the underline cursor (in pts)
+
+cursor_blink_interval -1
+
+
+cursor none
+cursor_blink_interval -1 ease-in-out
+
+cursor_trail 50
+cursor_trail_decay 0.1 0.2
+
+#: }}}
+
+#: Mouse {{{
+
+# url_color #0087bd
+# url_style curly
+
+url_prefixes file ftp ftps git http https mailto sftp ssh
+
+strip_trailing_spaces always
+
+select_by_word_characters @-./_~?&=%+#
+
+#: }}}
+
+
+#: Performance tuning {{{
+
+input_delay 0
+
+sync_to_monitor no
+
+#: }}}
+
+open_url_with default
+
+detect_urls yes
+
+copy_on_select no
+
+touch_scroll_multiplier 1.0
+
+
+kitty_mod ctrl+shift
+
+wayland_titlebar_color system
+
+
+
+
