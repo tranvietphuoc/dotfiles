@@ -1,15 +1,15 @@
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 
 
-export GOPATH="$HOME/go/"
-export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/go
+export CARGO_HOME=$HOME/.cargo
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export SYMFONY=$HOME/.symfony5
 
-export PATH="$HOME/.cargo/bin":$PATH
 
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
+export EDITOR="nvim"
 
-# export XCURSOR_SIZE=24
+export FLASK_ENV="dev"
 
-export editor="nvim"
