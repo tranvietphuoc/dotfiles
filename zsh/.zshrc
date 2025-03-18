@@ -124,9 +124,6 @@ export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 [ -f ~/.profile ] && source ~/.profile
 
 
-
-
-
 # enable ibus bamboo start with system
 export WAYLAND_DISPLAY=wayland-0
 export GDK_BACKEND=wayland,x11
@@ -136,10 +133,14 @@ export QT_QPA_PLATFORM=wayland
 export ELECTRON_OZONE_PLATFORM=wayland
 
 # path
+export PATH=/usr/sbin:$PATH
+export PATH=/sbin:$PATH
+export PATH=/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
-export PATH=$CARGO_HOME/bin:$PATH
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$SYMFONY/bin:$PATH
+
 
 # nvm
 export NVM_DIR=$HOME/.nvm
@@ -147,11 +148,9 @@ export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-
 # SSH 
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_rsa
-
 
 # starship
 eval "$(starship init zsh)"
