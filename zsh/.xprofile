@@ -1,8 +1,8 @@
 
 
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+export PLASMA_USE_QT_SCALING=1 
 # wayland display for xwayland apps
 export GTK_CSD=1
 export QT_QPA_PLATFORM=wayland
@@ -10,7 +10,7 @@ export QT_QPA_PLATFORM=xcb
 export GTK_BACKEND=wayland
 
 # export WAYLAND_DISPLAY=wayland-1
-export CODE_OZONE_PLATFORM=wayland code
+# export CODE_OZONE_PLATFORM=wayland code
 export DISPLAY=$WAYLAND_DISPLAY
 export MOZ_ENABLE_WAYLAND=1
 
@@ -23,4 +23,5 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
 ibus-daemon -drx
+
 

@@ -13,3 +13,9 @@ export EDITOR="nvim"
 
 export FLASK_ENV="dev"
 
+export XCURSOR_SIZE=48
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/phuoc/.local/share/JetBrains/Toolbox/scripts"
+

@@ -77,6 +77,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,6 +117,10 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Set up fzf key bindings and fuzzy completion
+# source <(fzf --zsh)
+export FZF_ALT_C_COMMAND= 
+export FZF_CTRL_T_COMMAND= 
+export FZF_CTRL_R_COMMAND= 
 source <(fzf --zsh)
 
 # set XDG_RUNTIME_DIR
@@ -123,14 +128,17 @@ export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 [ -f ~/.profile ] && source ~/.profile
 
+# fix scaling in 4k display
+export QT_SCALE_FACTOR=1
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1 
+export GDK_SCALE=1
+# export XWAYLAND_SCALE=2
+# export XCURSOR_SIZE=48
 
 # enable ibus bamboo start with system
 export WAYLAND_DISPLAY=wayland-0
 export GDK_BACKEND=wayland,x11
 export QT_QPA_PLATFORM=wayland
-
-# electron app
-export ELECTRON_OZONE_PLATFORM=wayland
 
 # path
 export PATH=/usr/sbin:$PATH
@@ -147,10 +155,10 @@ export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 # SSH 
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_rsa
+
 
 # starship
 eval "$(starship init zsh)"
