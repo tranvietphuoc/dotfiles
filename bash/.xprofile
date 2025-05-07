@@ -1,7 +1,7 @@
 
 
-# export GDK_SCALE=2
-# export GDK_DPI_SCALE=0.5
+export GDK_SCALE=2
+export GDK_DPI_SCALE=1
 export PLASMA_USE_QT_SCALING=1 
 # wayland display for xwayland apps
 export GTK_CSD=1
@@ -15,7 +15,7 @@ export DISPLAY=$WAYLAND_DISPLAY
 export MOZ_ENABLE_WAYLAND=1
 
 # fix scaling wayland for jetbrains
-export _JAVA_OPTIONS='-Dsun.java2d.uiScale=2 -Dsun.java2d.dpiaware=true'
+# export _JAVA_OPTIONS='-Dsun.java2d.uiScale=2 -Dsun.java2d.dpiaware=true'
 
 # enable ibus bamboo start with system
 export GTK_IM_MODULE=ibus
