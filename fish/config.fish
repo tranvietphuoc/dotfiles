@@ -8,10 +8,10 @@ set -x VISUAL nvim
 
 set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
 
-set -gx GOPATH $HOME/go
-set -gx CARGO_HOME $HOME/.cargo
-set -gx JAVA_HOME /usr/lib/jvm/java-21-graalvm
-set -gx SYMFONY $HOME/.symfony5
+# set -gx GOPATH $HOME/go
+# set -gx CARGO_HOME $HOME/.cargo
+# set -gx JAVA_HOME /usr/lib/jvm/java-21-graalvm
+# set -gx SYMFONY $HOME/.symfony5
 
 set -x CFLAGS "-I/usr/include"
 set -x LDFLAGS "-L/usr/lib"
