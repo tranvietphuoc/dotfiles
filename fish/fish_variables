@@ -4,6 +4,8 @@ SETUVAR --export CARGO_HOME:/home/phuoc/\x2ecargo
 SETUVAR --export EDITOR:nvim
 SETUVAR --export ELECTRON_OZONE_PLATFORM:wayland
 SETUVAR --export FLASK_ENV:dev
+SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x2d\x2dstrip\x2dcwd\x2dprefix\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2d\x2dno\x2dignore
+SETUVAR --export FZF_LEGACY_KEYBINDINGS:0
 SETUVAR --export GDK_BACKEND:wayland\x2cx11
 SETUVAR --export GDK_DPI_SCALE:0\x2e5
 SETUVAR --export GDK_SCALE:2

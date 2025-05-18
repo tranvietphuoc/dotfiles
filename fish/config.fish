@@ -45,3 +45,10 @@ set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
 set -gx FNM_COREPACK_ENABLED "false";
 set -gx FNM_RESOLVE_ENGINES "true";
 set -gx FNM_ARCH "x64";
+
+
+
+set fzf_fd_opts --hidden --max-depth 5 --no-ignore
+
+# Set up fzf key bindings
+fzf --fish | source
