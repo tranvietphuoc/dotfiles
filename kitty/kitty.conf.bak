@@ -1,9 +1,9 @@
 
 #: Font{{{ 
-font_family FiraCode Nerd Font 
-bold_font FiraCode Nerd Font
-italic_font FiraCode Nerd Font
-bold_italic_font FiraCode Nerd Font
+font_family JetBrains Mono Nerd
+bold_font JetBrains Mono Nerd
+italic_font JetBrains Mono Nerd
+bold_italic_font JetBrains Mono Nerd
 
 font_size 14.0
 
