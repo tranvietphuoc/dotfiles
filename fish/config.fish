@@ -1,54 +1,36 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+    
+    set -x PAGER less
+    set -x EDITOR nvim
+    set -x VISUAL nvim
+    
+    set -l fish_reserved_vars PWD SHLVL _
 
-alias pamcan=pacman
-
-
-set -x PAGER less
-set -x EDITOR nvim
-set -x VISUAL nvim
-
-set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
-
-# set -gx GOPATH $HOME/go
-# set -gx CARGO_HOME $HOME/.cargo
-# set -gx JAVA_HOME /usr/lib/jvm/java-21-graalvm
-# set -gx SYMFONY $HOME/.symfony5
-
-set -x CFLAGS "-I/usr/include"
-set -x LDFLAGS "-L/usr/lib"
-
-# path
-# set -gx PATH $HOME/.local/bin $PATH
-# set -gx PATH $CARGO_HOME/bin $PATH
-set -gx PATH $GOPATH/bin $PATH
-set -gx PATH $JAVA_HOME/bin $PATH
-set -gx PATH $SYMFONY/bin $PATH
-
-
-
-# enable ibus bamboo start with system
-set -gx WAYLAND_DISPLAY wayland-0
-set -gx GDK_BACKEND wayland,x11
-set -gx QT_QPA_PLATFORM wayland
-
-# electron app
-set -gx ELECTRON_OZONE_PLATFORM wayland
-
-
-starship init fish | source
-
-set -gx PATH "/run/user/1000/fnm_multishells/11015_1745077986855/bin" $PATH;
-set -gx FNM_MULTISHELL_PATH "/run/user/1000/fnm_multishells/11015_1745077986855";
-set -gx FNM_VERSION_FILE_STRATEGY "local";
-set -gx FNM_DIR "/home/phuoc/.local/share/fnm";
-set -gx FNM_LOGLEVEL "info";
-set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
-set -gx FNM_COREPACK_ENABLED "false";
-set -gx FNM_RESOLVE_ENGINES "true";
-set -gx FNM_ARCH "x64";
-
-
-
-set fzf_fd_opts --hidden --max-depth 5 --no-ignore
-
-# Set up fzf key bindings
-fzf --fish | source
+    if test -f ~/.profile
+        
+        for env_line in (bash -lc 'source ~/.profile > /dev/null 2>&1; printenv')
+            
+            # 1. Chia chuỗi tại vị trí dấu '=' (max-split 1)
+            set -l parts (echo $env_line | string split -m 1 '=')
+            
+            # Kiểm tra xem có đủ 2 phần tử (KEY và VALUE) không
+            if test (count $parts) -ge 2
+                
+                set -l key $parts[1]
+                set -l value $parts[2]
+                
+                # 2. KIỂM TRA LỌC: Bỏ qua các biến chỉ đọc đã biết
+                if contains $key $fish_reserved_vars
+                    continue # Chuyển sang vòng lặp tiếp theo
+                end
+                
+                # Thiết lập biến môi trường toàn cục (global -gx) trong Fish
+                if test -n "$key"
+                    set -gx $key $value
+                end
+            end
+            
+        end
+    end
+end
