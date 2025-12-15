@@ -1,11 +1,9 @@
-#
-# ~/.bash_profile
-#
+# .bash_profile
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
 
-
-
-# >>> coursier install directory >>>
-# export PATH="$PATH:/home/phuoc/.local/share/coursier/bin"
-# <<< coursier install directory <<<
+# User specific environment and startup programs
+. "$HOME/.cargo/env"

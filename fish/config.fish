@@ -34,3 +34,5 @@ if status is-interactive
         end
     end
 end
+
+fzf --fish | source
